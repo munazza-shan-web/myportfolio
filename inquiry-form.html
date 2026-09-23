@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request a website, full-stack application, backend API or custom web development project from Munazza Shan.">
+  <meta name="theme-color" content="#f6f1e9">
+  <title>Start Your Project | Munazza Shan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="portfolio-v2.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header inquiry-header">
+    <a class="logo" href="index.html" aria-label="Munazza Shan home"><span>MS</span> Munazza Shan</a>
+    <a class="back-link" href="index.html">← Back to portfolio</a>
+  </header>
+
+  <main class="inquiry-main">
+    <div class="inquiry-heading">
+      <div class="eyebrow"><i></i> Start your project</div>
+      <h1>Tell me what you want to <em>build.</em></h1>
+      <p>Share your goal, required features and preferred timeline. I’ll review the details and contact you about the most practical next step.</p>
+    </div>
+
+    <div class="form-card">
+      <div class="selected-package">
+        <div><small>Selected service</small><strong id="selectedPackage">Custom Web Development</strong></div>
+        <div class="selected-price" id="selectedPrice">Custom quote</div>
+      </div>
+
+      <form action="https://formsubmit.co/munazza.shan@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Munazza Shan Project Inquiry">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_next" value="https://munazza-shan-web.github.io/munazza-shan-web/">
+        <input type="hidden" name="_url" value="https://munazza-shan-web.github.io/munazza-shan-web/inquiry-form.html">
+        <input type="hidden" name="selected_service" id="packageField" value="Custom Web Development">
+        <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off">
+
+        <div class="form-section">
+          <div><h2>Your details</h2><p>How can I contact you about the project?</p></div>
+          <div class="form-grid">
+            <label>Full name *<input type="text" name="name" placeholder="Your name" required></label>
+            <label>Email address *<input type="email" name="email" placeholder="you@example.com" required></label>
+            <label>Business or company<input type="text" name="business" placeholder="Your business name"></label>
+            <label>WhatsApp or phone<input type="text" name="phone" placeholder="+1 234 567 890"></label>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div><h2>Project requirements</h2><p>Select the closest service. We can refine the scope later.</p></div>
+          <div class="form-grid">
+            <label>Service *
+              <select name="service" id="packageSelect" required>
+                <option value="Starter Website Package — $150">Starter website — $150</option>
+                <option value="Professional Website Package — $300">Professional website — $300</option>
+                <option value="Business Website Package — $500">Business website — $500</option>
+                <option value="E-commerce Website Package — $700+">E-commerce website — $700+</option>
+                <option value="Full-Stack Application — Custom quote">Full-stack application — Custom quote</option>
+                <option value="Backend API or Integration — Custom quote">Backend API or integration — Custom quote</option>
+                <option value="Custom Web Development — Custom quote">Other custom project — Custom quote</option>
+              </select>
+            </label>
+            <label>Preferred delivery
+              <select name="deadline">
+                <option value="">Select an option</option><option>As soon as possible</option><option>Within 1 week</option><option>Within 2 weeks</option><option>Within 1 month</option><option>Flexible</option>
+              </select>
+            </label>
+          </div>
+          <label>What do you want to build? *<textarea name="project_requirements" placeholder="Describe your business, users, required pages or features, examples you like, and the main result you want from this project." required></textarea></label>
+        </div>
+
+        <div class="form-section">
+          <div><h2>Current setup</h2><p>This helps me understand what is already available.</p></div>
+          <div class="form-grid">
+            <label>Existing website or application<input type="url" name="existing_website" placeholder="https://example.com"></label>
+            <label>Preferred platform
+              <select name="platform"><option value="">Select if known</option><option>React / Full-stack custom</option><option>WordPress</option><option>Shopify</option><option>Custom HTML/CSS/JavaScript</option><option>Backend API only</option><option>Not sure — please recommend</option></select>
+            </label>
+          </div>
+          <div class="check-grid"><label class="check"><input type="checkbox" name="domain_ready" value="Yes"> I already have a domain</label><label class="check"><input type="checkbox" name="hosting_ready" value="Yes"> I already have hosting</label></div>
+        </div>
+
+        <div class="submit-row"><button class="submit-button" type="submit">Submit project request ↗</button></div>
+      </form>
+      <p class="privacy">Your information will only be used to review and respond to your project inquiry.</p>
+    </div>
+  </main>
+
+  <footer><div><strong>Munazza Shan</strong><span>Full-Stack Web Developer</span></div><p>© <span id="year"></span> Munazza Shan. All rights reserved.</p><a href="packages.html">View packages ↑</a></footer>
+
+  <script>
+    const options = {
+      starter: ["Starter Website Package", "$150", 0],
+      professional: ["Professional Website Package", "$300", 1],
+      business: ["Business Website Package", "$500", 2],
+      ecommerce: ["E-commerce Website Package", "$700+", 3],
+      fullstack: ["Full-Stack Application", "Custom quote", 4],
+      api: ["Backend API or Integration", "Custom quote", 5],
+      custom: ["Custom Web Development", "Custom quote", 6]
+    };
+    const selectedPackage = document.getElementById("selectedPackage");
+    const selectedPrice = document.getElementById("selectedPrice");
+    const packageField = document.getElementById("packageField");
+    const packageSelect = document.getElementById("packageSelect");
+    const requested = new URLSearchParams(window.location.search).get("package") || "custom";
+    const initial = options[requested] || options.custom;
+    selectedPackage.textContent = initial[0];
+    selectedPrice.textContent = initial[1];
+    packageSelect.selectedIndex = initial[2];
+    packageField.value = `${initial[0]} — ${initial[1]}`;
+    packageSelect.addEventListener("change", () => {
+      const text = packageSelect.options[packageSelect.selectedIndex].textContent;
+      const parts = text.split(" — ");
+      selectedPackage.textContent = parts[0];
+      selectedPrice.textContent = parts[1] || "Custom quote";
+      packageField.value = packageSelect.value;
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
