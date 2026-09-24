@@ -397,3 +397,37 @@ h1 em,h2 em,.project-link:hover,.live-link{background:linear-gradient(90deg,var(
 .reveal{opacity:0;transform:perspective(1000px) translateY(30px) rotateX(3deg);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}.reveal.visible{opacity:1;transform:perspective(1000px) translateY(0) rotateX(0)}
 @media(max-width:900px){.hero-showcase{overflow:hidden}.orb,.code-cube{display:none}.tilt-card,.tilt-card:hover{transform:none!important}.bg-grid{transform:none}}
 @media(prefers-reduced-motion:reduce){.orb,.code-cube{animation:none}.tilt-card,.tilt-card:hover{transform:none!important;transition:none}}
+
+/* ===== Readability fix: 3D dark theme contrast ===== */
+:root{
+  --bg:#070911;
+  --panel:#101522;
+  --panel-2:#151c2c;
+  --text:#f7f9ff;
+  --muted:#b7c0d3;
+  --line:rgba(255,255,255,.13);
+}
+body{color:var(--text)}
+.site-header{color:#f7f9ff;border:1px solid rgba(255,255,255,.05);border-top:0}
+.logo{color:#f7f9ff}.logo span{color:#071017}
+.nav{color:#c5cce0}.nav a{color:#c5cce0}.nav a:hover{color:#fff}
+.nav-cta{color:#071017!important}
+.eyebrow{color:#f0a879}
+h1,h2,h3{color:#f7f9ff}
+.hero-copy h1{color:#f7f9ff;text-shadow:0 3px 22px rgba(0,0,0,.45)}
+.hero-text{color:#c0c8d8}
+.hero-proof strong{color:#fff}.hero-proof span{color:#98a3b8}
+.showcase-head{color:#aab4c8}.showcase-head small{color:#bfc9dc}
+.showcase-main h2,.showcase-grid h3{color:#f7f9ff}.showcase-main p,.showcase-grid p{color:#b7c0d3}
+.showcase-tags b{color:#dce3ef;background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.14)}
+.showcase-foot{color:#99a5ba}.showcase-foot strong{color:#e7ebf4}
+.section-heading>p,.flagship-content p,.project-body p,.service-card p,.about-card p,.pricing-box p{color:#b7c0d3}
+.flagship-card,.project-card,.service-card{color:#f7f9ff;background:linear-gradient(145deg,rgba(18,23,36,.97),rgba(9,12,21,.96));border-color:rgba(255,255,255,.12)}
+.project-top small{color:#9aa5ba}.tags span{color:#c8d0df;background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.13)}
+.project-link,.work-heading>a,.text-link{color:#d5dbea}
+.service-card li{color:#d0d6e2}.skills-grid{background:rgba(15,20,32,.82);border-color:var(--line)}.skill strong{color:#f7f9ff}.skill span{color:#aeb7ca}
+.about-card{color:#f7f9ff;background:linear-gradient(120deg,rgba(19,26,40,.98),rgba(11,15,25,.98));border-color:rgba(110,231,255,.18)}
+.process span{color:#cbd2df}.pricing-box,.custom-solutions{color:#f7f9ff;background:linear-gradient(120deg,rgba(18,25,39,.98),rgba(10,14,24,.98));border-color:rgba(110,231,255,.2)}
+.pricing-box p strong{color:#fff}
+footer{color:#9ea8bb;border-color:var(--line)}footer strong{color:#f7f9ff}
+@media(max-width:800px){.nav{background:#0d1220;border-color:rgba(255,255,255,.12)}.menu-btn{color:#fff}}
