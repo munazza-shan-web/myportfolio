@@ -368,3 +368,42 @@ h1 em,h2 em{background:linear-gradient(90deg,#7bf0cf,#62d8ff 55%,#b98cff);-webki
     padding: 26px;
   }
 }
+.hero-showcase {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-robot {
+  position: absolute;
+  width: clamp(145px, 17vw, 230px);
+  right: -22px;
+  bottom: -22px;
+  z-index: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.35));
+  animation: robot-float 4.5s ease-in-out infinite;
+}
+
+.showcase-head,
+.showcase-main,
+.showcase-grid,
+.showcase-foot {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes robot-float {
+  0%, 100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@media (max-width: 800px) {
+  .hero-robot {
+    width: 150px;
+    opacity: 0.45;
+  }
+}
