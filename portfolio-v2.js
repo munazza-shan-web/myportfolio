@@ -42,3 +42,20 @@ if (!reduceMotion && "IntersectionObserver" in window) {
 
   revealItems.forEach(item => observer.observe(item));
 }
+
+// Lightweight 3D tilt. No framework/CDN required, so it remains GitHub Pages friendly.
+if (!reduceMotion && window.matchMedia("(pointer:fine)").matches) {
+  document.querySelectorAll(".tilt-card").forEach(card => {
+    card.addEventListener("pointermove", e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      card.style.setProperty("--ry", `${x * 5}deg`);
+      card.style.setProperty("--rx", `${y * -5}deg`);
+    });
+    card.addEventListener("pointerleave", () => {
+      card.style.setProperty("--ry", "0deg");
+      card.style.setProperty("--rx", "0deg");
+    });
+  });
+}
